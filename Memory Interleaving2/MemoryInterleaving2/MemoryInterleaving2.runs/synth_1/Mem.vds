@@ -1,0 +1,339 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sun May 17 18:08:36 2020
+# Process ID: 7644
+# Current directory: C:/Users/Yankey/Desktop/Projects/MemoryStudies/Memory Interleaving2/MemoryInterleaving2/MemoryInterleaving2.runs/synth_1
+# Command line: vivado.exe -log Mem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Mem.tcl
+# Log file: C:/Users/Yankey/Desktop/Projects/MemoryStudies/Memory Interleaving2/MemoryInterleaving2/MemoryInterleaving2.runs/synth_1/Mem.vds
+# Journal file: C:/Users/Yankey/Desktop/Projects/MemoryStudies/Memory Interleaving2/MemoryInterleaving2/MemoryInterleaving2.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Mem.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 424.281 ; gain = 123.332
+Command: synth_design -top Mem -part xc7vx485tffg1157-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10548 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 691.063 ; gain = 241.961
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Mem' [C:/Users/Yankey/Desktop/Projects/MemoryStudies/Memory Interleaving2/MemoryInterleaving2/MemoryInterleaving2.srcs/sources_1/new/Mem.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'Mem' (1#1) [C:/Users/Yankey/Desktop/Projects/MemoryStudies/Memory Interleaving2/MemoryInterleaving2/MemoryInterleaving2.srcs/sources_1/new/Mem.vhd:43]
+WARNING: [Synth 8-3331] design Mem has unconnected port clk
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 763.695 ; gain = 314.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 763.695 ; gain = 314.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx485tffg1157-1
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 763.695 ; gain = 314.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "MEM1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MEM2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MEM3" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MEM4" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 763.695 ; gain = 314.594
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Muxes : 
+	  65 Input     32 Bit        Muxes := 4     
+	   4 Input     32 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module Mem 
+Detailed RTL Component Info : 
++---Muxes : 
+	  65 Input     32 Bit        Muxes := 4     
+	   4 Input     32 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2800 (col length:140)
+BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[127] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[126] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[125] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[124] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[123] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[122] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[121] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[120] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[119] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[118] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[117] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[116] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[115] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[114] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[113] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[112] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[111] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[110] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[109] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[108] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[107] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[106] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[105] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[104] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[103] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[102] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[101] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[100] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[95] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[94] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[93] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[92] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[91] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[90] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[89] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[88] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[87] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[86] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[85] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[84] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[83] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[82] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[81] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[80] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[79] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[78] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[77] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[76] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[75] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[74] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[73] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[72] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[71] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[70] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[69] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[68] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[67] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[66] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[63] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[62] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[61] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[60] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[59] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[58] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[57] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[56] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[55] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[54] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[53] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[52] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[51] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[50] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[49] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[48] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[47] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[46] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[45] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[44] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[43] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[42] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[41] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[40] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[39] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[38] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[36] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[31] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[30] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[29] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[28] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[27] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[26] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[25] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[24] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[23] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[22] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[21] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[20] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[19] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[18] driven by constant 0
+WARNING: [Synth 8-3917] design Mem has port Block_Rd[17] driven by constant 0
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3331] design Mem has unconnected port clk
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1082.719 ; gain = 633.617
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1084.047 ; gain = 634.945
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1084.047 ; gain = 634.945
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT2 |     1|
+|2     |LUT3 |     2|
+|3     |LUT4 |     2|
+|4     |LUT5 |     1|
+|5     |LUT6 |     5|
+|6     |IBUF |     8|
+|7     |OBUF |   160|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   179|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 143 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.035 ; gain = 636.934
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1098.113 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1213.254 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+14 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1213.254 ; gain = 788.973
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1213.254 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Yankey/Desktop/Projects/MemoryStudies/Memory Interleaving2/MemoryInterleaving2/MemoryInterleaving2.runs/synth_1/Mem.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Mem_utilization_synth.rpt -pb Mem_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun May 17 18:09:31 2020...
