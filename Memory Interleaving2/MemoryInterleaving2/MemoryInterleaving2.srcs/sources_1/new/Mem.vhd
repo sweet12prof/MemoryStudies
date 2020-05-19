@@ -33,10 +33,12 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Mem is
   Port ( 
-            clk : in std_logic;
-            Adr : in std_logic_vector(7 downto 0);
-            Block_Rd  : out std_logic_vector(127 downto 0);
-            SingleData_Rd   : out std_logic_vector(31 downto 0)
+            clk             : in std_logic;
+            Adr             : in std_logic_vector(7 downto 0);
+            Block_Rd        : out std_logic_vector(127 downto 0);
+            SingleData_Rd   : out std_logic_vector(31 downto 0);
+            writeData       : in std_logic_vector(31 downto 0);
+            WE              : in std_logic
         );
 end Mem;
 
@@ -45,6 +47,11 @@ architecture Behavioral of Mem is
     type mem_Bank2 is array (0 to 63) of std_logic_vector(31 downto 0);
     type mem_Bank3 is array (0 to 63) of std_logic_vector(31 downto 0);
     type mem_Bank4 is array (0 to 63) of std_logic_vector(31 downto 0);
+    
+    signal Bank1_EN : std_logic;
+    signal Bank2_EN : std_logic;
+    signal Bank3_EN : std_logic;
+    signal Bank4_EN : std_logic;
     
    signal MEM1  : mem_BANK1 := (
                                      x"0000000c",
@@ -99,4 +106,54 @@ begin
                 MEM1_Read when others;
                         
         Block_Rd  <= MEM1_Read & MEM2_Read & MEM3_Read & MEM4_Read ;
+        
+        Bank1_EN <= '1' when BankSEL = "00" else '0';
+        Bank2_EN <= '1' when BankSEL = "01" else '0';
+        Bank3_EN <= '1' when BankSEL = "10" else '0';
+        Bank4_EN <= '1' when BankSEL = "11" else '0';
+        
+        WriteProc_Bankl : process(clk)
+                    begin 
+                        if(rising_edge(clk)) then 
+                            if(WE = '1') then 
+                                if(Bank1_EN = '1') then 
+                                    Mem1(to_integer(unsigned(Adr(7 downto 2)))) <= WriteData;
+                                end if;
+                            end if;
+                        end if;
+                    end process;
+                    
+        WriteProc_Bank2 : process(clk)
+                    begin 
+                        if(rising_edge(clk)) then 
+                            if(WE = '1') then 
+                                if(Bank2_EN = '1') then 
+                                    Mem2(to_integer(unsigned(Adr(7 downto 2)))) <= WriteData;
+                                end if;
+                            end if;
+                        end if;
+                    end process;
+       
+       WriteProc_Bank3 : process(clk)
+                    begin 
+                        if(rising_edge(clk)) then 
+                            if(WE = '1') then 
+                                if(Bank3_EN = '1') then 
+                                    Mem3(to_integer(unsigned(Adr(7 downto 2)))) <= WriteData;
+                                end if;
+                            end if;
+                        end if;
+                    end process;
+       
+       WriteProc_Bank4 : process(clk)
+                    begin 
+                        if(rising_edge(clk)) then 
+                            if(WE = '1') then 
+                                if(Bank4_EN = '1') then 
+                                    Mem4(to_integer(unsigned(Adr(7 downto 2)))) <= WriteData;
+                                end if;
+                            end if;
+                        end if;
+                    end process;
+            
 end Behavioral;
