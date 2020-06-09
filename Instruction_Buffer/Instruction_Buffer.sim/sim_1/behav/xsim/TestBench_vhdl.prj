@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Instruction_Buffer.srcs/sources_1/new/IBuff.vhd" \
+"../../../../Instruction_Buffer.srcs/sources_1/new/TestBench.vhd" \
+
+# Do not sort compile order
+nosort
