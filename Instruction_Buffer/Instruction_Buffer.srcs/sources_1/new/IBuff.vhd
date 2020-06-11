@@ -56,7 +56,7 @@ architecture Behavioral of IBuff is
     signal readAdr1  : unsigned(2 downto 0);
     signal readAdr2, writeAdr2  : unsigned(2 downto 0);
 begin
-    process(clk, reset) 
+  HeadPointer_Syncproc:  process(clk, reset) 
             begin 
                 if(reset = '1') then 
                     HeadPointerCurrent <= "000";
@@ -65,7 +65,7 @@ begin
                 end if;
             end process;
             
-       process(clk, reset) 
+   TaiLPointer_Syncproc:   process(clk, reset) 
             begin 
                 if(reset = '1') then 
                     TailPointerCurrent <= "110";
@@ -74,48 +74,41 @@ begin
                 end if;
             end process;
             
-      process(SchedBit, HeadPointerCurrent, TailPointerCurrent)
+     HeadPointer_Asyncproc: process(SchedBit, HeadPointerCurrent)
         begin 
             IF(SchedBit = '0') then 
                 HeadPointerNext <= HeadPointerCurrent + 2;
-                TailPointerNext <=  TailPointerCurrent +2;
             else 
                 HeadPointerNext <= HeadPointerCurrent + 2;
+            end if;
+        end process;
+        
+       TailPointer_Asyncproc : process(SchedBit, TailPointerCurrent)
+        begin 
+            IF(SchedBit = '0') then 
+                TailPointerNext <=  TailPointerCurrent +2;
+            else 
                 TailPointerNext <= TailPointerCurrent + 1;
             end if;
         end process;
         
         readAdr1 <= TailPointerCurrent;
         readAdr2 <=  TailPointerCurrent + 1;
-        writeAdr2 <=  HeadPointerCurrent + 1;
-        
-        ReadData1 <= Buff(to_integer(readAdr1));
-        ReadData2  <= Buff(to_integer(readAdr2));
---       process(clk)
---        begin 
---            if(falling_edge(clk)) then 
-                  ReadData1 <= Buff(to_integer(readAdr1));
-                  ReadData2  <= Buff(to_integer(readAdr2));
---            end if;
---        end process;
+   
+       ReadData1 <= Buff(to_integer(readAdr1));
+       ReadData2  <= Buff(to_integer(readAdr2));
+       
+       writeAdr2 <=  HeadPointerCurrent + 1;
        
        process(clk)
         begin 
             if(falling_edge(clk)) then 
-            if(reset /= '1') then
-                  Buff(to_integer(writeAdr2)) <= writeData2;
-                  Buff(to_integer(HeadPointerCurrent)) <= writeData1;
-            end if;
+                if(reset /= '1') then
+                      Buff(to_integer(writeAdr2)) <= writeData2;
+                      Buff(to_integer(HeadPointerCurrent)) <= writeData1;
+                end if;
             end if;
         end process;
-        
---         process(clk)
---        begin 
---            if(rising_edge(clk)) then 
---             if(reset /= '1') then
---                 Buff(to_integer(HeadPointerCurrent)) <= writeData1;
---            end if;
---            end if;
---        end process;
+
         
 end Behavioral;
