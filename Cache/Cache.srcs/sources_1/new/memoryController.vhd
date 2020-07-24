@@ -114,7 +114,7 @@ begin
                             when  idle =>
                                 ReadNextCount  <= 0;
                                 WriteNextCount <= 0;
-                                ready             <= '0';
+                                ready             <= '1';
                                 WE_MEM           <= '0';
                                 Adr_MEM          <= (OTHERS => '0');                                
                                 WriteBlock_MEM       <= (OTHERS => '0');

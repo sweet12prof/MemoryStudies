@@ -1,0 +1,1 @@
+-wto "a312d2b5d7184eec81dc18e252ca81f3" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "secureip" --snapshot "Valid_Struc_func_synth" "xil_defaultlib.Valid_Struc" "xil_defaultlib.glbl" -log "elaborate.log" 
