@@ -33,11 +33,12 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity IBuff is
   Port (    
-            clk, reset, SchedBit  : in std_logic;
-            ReadData1             : out std_logic_vector(31 downto 0);
-            ReadData2             : out std_logic_vector(31 downto 0);
-            writeData1             : in std_logic_vector(31 downto 0);
-            writeData2              : in std_logic_vector(31 downto 0)
+            clk, reset, SchedBit, DPstall, DPFlush : in std_logic;
+            ReadData1            : out std_logic_vector(31 downto 0);
+            ReadData2            : out std_logic_vector(31 downto 0);
+            writeData1           : in std_logic_vector(31 downto 0);
+            writeData2           : in std_logic_vector(31 downto 0);
+            Stall                : out std_logic
             
          );
 end IBuff;
@@ -50,12 +51,25 @@ architecture Behavioral of IBuff is
     
     signal HeadPointerCurrent  : unsigned(2 downto 0);
     signal TailPointerCurrent  : unsigned(2 downto 0);
-    signal HeadPointerNext  : unsigned(2 downto 0);
+    signal HeadPointerNext     : unsigned(2 downto 0);
+    signal TltHres, Tgt, preHN, preTN, TgtHres, StallComp  : unsigned(3 downto 0);
     signal TailPointerNext  : unsigned(2 downto 0);
     
     signal readAdr1  : unsigned(2 downto 0);
     signal readAdr2, writeAdr2  : unsigned(2 downto 0);
+    
+    signal stallSig, stallFinal  : std_logic;
 begin
+  preHN <= '0' & HeadPointerNext;
+  preTN <= '0' & TailPointerNext;
+  
+  Tgt <= preHN + 8;
+  TgtHres <= Tgt - preTN;
+  
+  TltHres <= HeadPointerNext - TailPointerNext;
+  
+  StallComp <= TgtHres when TailPointerNext > HeadPointerNext else TltHres;
+  
   HeadPointer_Syncproc:  process(clk, reset) 
             begin 
                 if(reset = '1') then 
@@ -74,7 +88,7 @@ begin
                 end if;
             end process;
             
-     HeadPointer_Asyncproc: process(SchedBit, HeadPointerCurrent)
+    HeadPointer_Asyncproc: process(SchedBit, HeadPointerCurrent)
         begin 
             IF(SchedBit = '0') then 
                 HeadPointerNext <= HeadPointerCurrent + 2;
@@ -83,7 +97,7 @@ begin
             end if;
         end process;
         
-       TailPointer_Asyncproc : process(SchedBit, TailPointerCurrent)
+      TailPointer_Asyncproc : process(SchedBit, TailPointerCurrent)
         begin 
             IF(SchedBit = '0') then 
                 TailPointerNext <=  TailPointerCurrent +2;
@@ -92,8 +106,19 @@ begin
             end if;
         end process;
         
-        readAdr1 <= TailPointerCurrent;
-        readAdr2 <=  TailPointerCurrent + 1;
+       Buff_Cap_Proc : process(StallComp)
+                            begin 
+                                if(StallComp < 2) then 
+                                    StallSig <= '0';
+                                else 
+                                    StallSig <= '1';
+                                end if;
+                            end process;
+       
+       StallFinal <= StallSig or DPStall;
+        
+       readAdr1 <= TailPointerCurrent;
+       readAdr2 <=  TailPointerCurrent + 1;
    
        ReadData1 <= Buff(to_integer(readAdr1));
        ReadData2  <= Buff(to_integer(readAdr2));
@@ -103,7 +128,7 @@ begin
        process(clk)
         begin 
             if(falling_edge(clk)) then 
-                if(reset /= '1') then
+                if(reset /= '1' and StallFinal = '0') then
                       Buff(to_integer(writeAdr2)) <= writeData2;
                       Buff(to_integer(HeadPointerCurrent)) <= writeData1;
                 end if;

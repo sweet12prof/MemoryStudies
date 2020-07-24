@@ -26,6 +26,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
+
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
@@ -42,7 +43,7 @@ entity Mem is
         );
 end Mem;
 
-architecture Behavioral of Mem is
+ architecture Behavioral of Mem is
     type mem_BANK1 is array (0 to 63) of std_logic_vector(31 downto 0);
     type mem_Bank2 is array (0 to 63) of std_logic_vector(31 downto 0);
     type mem_Bank3 is array (0 to 63) of std_logic_vector(31 downto 0);
