@@ -45,7 +45,7 @@ entity Cache_Datapath is
             DP_BlockWord_Out           : out std_logic_vector(31 downto 0);
             
             WE                         : in std_logic;
-            WriteBlock                 : in std_logic
+            
             
             
         );
@@ -53,8 +53,8 @@ end Cache_Datapath;
 
 architecture Behavioral of Cache_Datapath is
     use work.cache_path_packages.all;
-    signal someNumber : std_logic_vector(1023 downto 0);
+    
 begin
-
+    
 
 end Behavioral;

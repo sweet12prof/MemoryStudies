@@ -70,8 +70,8 @@ package cache_path_packages is
    component Valid_Struc is
       Port ( 
                 clk   : std_logic; 
-                reset : std_logic;
-                D     : in std_logic_vector(1023 downto 0 );
+                reset : std_logic;               
+                someNum : in std_logic_vector(10 downto 0);
                 Q     : out std_logic_vector(1023 downto 0)
             );
     end component;
