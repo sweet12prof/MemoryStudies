@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Fri Jul 24 23:48:21 2020
+// Date        : Sun Jul 26 16:38:30 2020
 // Host        : DESKTOP-A2BJCB3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode funcsim -nolib -force -file {C:/Users/TI
 //               Lab/Desktop/Project/MemoryStudies/Cache/Cache.sim/sim_1/synth/func/xsim/Valid_Struc_func_synth.v}

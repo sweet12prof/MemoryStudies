@@ -33,22 +33,27 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity memoryController is
   generic(
-            ReadCycles  : integer := 4;
-            WriteCycles : integer := 4
+            ReadCycles  : integer ;
+            WriteCycles : integer 
         );
   Port ( 
             clk     : in std_logic;
             reset   : in std_logic;
             
-            Mem_Operation  : in std_logic;
+            -----From Cache Controller
+            Mem_Operation     : in std_logic;
             WE_In             : in std_logic;
            
-            Adr_In               : in std_logic_vector(10 downto 0);
+           ------ From Datapath/Cache
+            Adr_In               : in std_logic_vector(12 downto 0);
             
-            BlockData_In       : in std_logic_vector(127 downto 0);
+            ------- From Datapath
+            BlockData_In         : in std_logic_vector(127 downto 0);
+            
+            -----To Cache Datapath
             BlockData_Out      : out std_logic_vector(127 downto 0);
            
-            
+            -----To Cache Controller
             ready       : out std_logic
             
            
@@ -66,10 +71,10 @@ architecture Behavioral of memoryController is
     signal WriteNextCount : integer;
                 
     signal WE_MEM                    : std_logic;                       
-    signal Adr_MEM                   : std_logic_vector(10 downto 0);   
+    signal Adr_MEM                   : std_logic_vector(12 downto 0);   
     signal RData_MEM                 : std_logic_vector(127 downto 0); 
     --signal RDataSingleElement    : std_logic_vector(31 downto 0);  
-    signal WriteBlock_MEM            : std_logic_vector(127 downto 0);   
+   -- signal WriteBlock_MEM            : std_logic_vector(127 downto 0);   
     use work.arch_TestBench.all;
     
     
@@ -98,7 +103,7 @@ begin
                     end if;
                  end process;
                  
-     async_proc : process(PS, ReadCurrentCount, WriteCurrentCount, Mem_Operation)
+     async_proc : process(PS, ReadCurrentCount, WriteCurrentCount, Mem_Operation, Adr_In,  WE_In, RData_MEM)
                     begin 
                     
                         ReadNextCount <= ReadCurrentCount;
@@ -106,8 +111,8 @@ begin
                         ready             <= '0';
                         WE_MEM           <=  '0';
                         Adr_MEM          <= Adr_In;                                
-                        WriteBlock_MEM       <= (OTHERS => '0');
-                        BlockData_Out        <= (OTHERS => '0');
+                        BlockData_Out    <= (others => '0');
+                       
                         
                         
                          case PS is
@@ -117,7 +122,7 @@ begin
                                 ready             <= '1';
                                 WE_MEM           <= '0';
                                 Adr_MEM          <= (OTHERS => '0');                                
-                                WriteBlock_MEM       <= (OTHERS => '0');
+                               
                                 
                                  if(Mem_Operation = '0') then 
                                     NS <= idle;
@@ -130,7 +135,7 @@ begin
                                  end if;
                             
                             when read => 
-                                    
+                                 ready <= '0';    
                                 if(ReadCurrentCount = ReadCycles ) then
                                      NS <= MEMReady;
                                 ELSE 
@@ -141,8 +146,9 @@ begin
                             when MEMReady => 
                                 ready <= '1';
                                 BlockData_Out <= RData_MEM;
-                                NS <= idle;
+                                NS <= Idle;
                                 
+                            
                             when write =>
                                 
                                 if(WriteCurrentCount = WriteCycles ) then

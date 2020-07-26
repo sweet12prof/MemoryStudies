@@ -36,7 +36,7 @@ package arch_TestBench is
       Port ( 
                 clk                 : in std_logic;
                 WE                  : in std_logic;
-                Adr                 : in std_logic_vector(10 downto 0);
+                Adr                 : in std_logic_vector(12 downto 0);
                 RData               : out std_logic_vector(127 downto 0);
                 RDataSingleElement  : out std_logic_vector(31 downto 0);
                 WriteBlock       : in std_logic_vector(127 downto 0)
@@ -45,7 +45,7 @@ package arch_TestBench is
     end component;
     
     signal WE          :  std_logic;
-    signal Adr         :  std_logic_vector(10 downto 0);
+    signal Adr         :  std_logic_vector(12 downto 0);
     signal WData       :  std_logic_vector(127 downto 0);
 
 end arch_TestBench;

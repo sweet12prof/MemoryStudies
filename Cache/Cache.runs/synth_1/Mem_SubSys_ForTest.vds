@@ -1,0 +1,277 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sun Jul 26 21:42:17 2020
+# Process ID: 61652
+# Current directory: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1
+# Command line: vivado.exe -log Mem_SubSys_ForTest.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Mem_SubSys_ForTest.tcl
+# Log file: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1/Mem_SubSys_ForTest.vds
+# Journal file: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Mem_SubSys_ForTest.tcl -notrace
+Command: synth_design -top Mem_SubSys_ForTest -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19980
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Mem_SubSys_ForTest' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Mem_SubSys_ForTest.vhd:50]
+	Parameter ReadCycles bound to: 4 - type: integer 
+	Parameter WriteCycles bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'memoryController' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/memoryController.vhd:34' bound to instance 'memoryController1' of component 'memoryController' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Mem_SubSys_ForTest.vhd:114]
+INFO: [Synth 8-638] synthesizing module 'memoryController' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/memoryController.vhd:63]
+	Parameter ReadCycles bound to: 4 - type: integer 
+	Parameter WriteCycles bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'mainMemory' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/mainMemory.vhd:34' bound to instance 'MAINmEMORY_MAP' of component 'mainMemory' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/memoryController.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'mainMemory' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/mainMemory.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'mainMemory' (1#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/mainMemory.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'memoryController' (2#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/memoryController.vhd:63]
+INFO: [Synth 8-3491] module 'Cache' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache.vhd:34' bound to instance 'Cache_map' of component 'Cache' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Mem_SubSys_ForTest.vhd:144]
+INFO: [Synth 8-638] synthesizing module 'Cache' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache.vhd:59]
+INFO: [Synth 8-3491] module 'Cache_Datapath' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd:34' bound to instance 'CacheDP_map' of component 'Cache_Datapath' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache.vhd:133]
+INFO: [Synth 8-638] synthesizing module 'Cache_Datapath' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd:63]
+INFO: [Synth 8-3491] module 'Tag_struc' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Tag_struc.vhd:34' bound to instance 'TagStruc_map' of component 'Tag_struc' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd:71]
+INFO: [Synth 8-638] synthesizing module 'Tag_struc' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Tag_struc.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'Tag_struc' (3#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Tag_struc.vhd:44]
+INFO: [Synth 8-3491] module 'Valid_Struc' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Valid_Struc.vhd:34' bound to instance 'Valid_port_map' of component 'Valid_Struc' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd:82]
+INFO: [Synth 8-638] synthesizing module 'Valid_Struc' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Valid_Struc.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'Valid_Struc' (4#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Valid_Struc.vhd:44]
+INFO: [Synth 8-3491] module 'Valid_Struc' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Valid_Struc.vhd:34' bound to instance 'Dirty_port_map' of component 'Valid_Struc' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd:92]
+INFO: [Synth 8-3491] module 'Data_Struc' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Data_struc.vhd:34' bound to instance 'Data_Struc_map' of component 'Data_Struc' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd:101]
+INFO: [Synth 8-638] synthesizing module 'Data_Struc' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Data_struc.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'Data_Struc' (5#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Data_struc.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'Cache_Datapath' (6#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd:63]
+INFO: [Synth 8-3491] module 'CacheController' declared at 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/CacheController.vhd:34' bound to instance 'Cache_Controller' of component 'CacheController' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'CacheController' [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/CacheController.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'CacheController' (7#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/CacheController.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'Cache' (8#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'Mem_SubSys_ForTest' (9#1) [C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Mem_SubSys_ForTest.vhd:50]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'memoryController'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                               00 |                               00
+                    read |                               01 |                               01
+                   write |                               10 |                               10
+                memready |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'sequential' in module 'memoryController'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 6     
+	                1 Bit    Registers := 2     
++---RAMs : 
+	              64K Bit	(2048 X 32 bit)          RAMs := 4     
++---Muxes : 
+	   4 Input  128 Bit        Muxes := 1     
+	   4 Input   32 Bit        Muxes := 3     
+	   4 Input   13 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 5     
+	   2 Input    1 Bit        Muxes := 515   
+	   4 Input    1 Bit        Muxes := 4     
+	   7 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping	Report (see note below)
++-------------------+--------------------------------------------+-----------+----------------------+----------------+
+|Module Name        | RTL Object                                 | Inference | Size (Depth x Width) | Primitives     | 
++-------------------+--------------------------------------------+-----------+----------------------+----------------+
+|Mem_SubSys_ForTest | Cache_map/CacheDP_map/TagStruc_map/MEM_reg | Implied   | 128 x 4              | RAM128X1S x 4	 | 
++-------------------+--------------------------------------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping	Report
++-------------------+--------------------------------------------+-----------+----------------------+----------------+
+|Module Name        | RTL Object                                 | Inference | Size (Depth x Width) | Primitives     | 
++-------------------+--------------------------------------------+-----------+----------------------+----------------+
+|Mem_SubSys_ForTest | Cache_map/CacheDP_map/TagStruc_map/MEM_reg | Implied   | 128 x 4              | RAM128X1S x 4	 | 
++-------------------+--------------------------------------------+-----------+----------------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |BUFG      |     1|
+|2     |CARRY4    |    16|
+|3     |LUT2      |    90|
+|4     |LUT3      |     4|
+|5     |LUT4      |    66|
+|6     |LUT5      |    32|
+|7     |LUT6      |   170|
+|8     |RAM128X1S |     4|
+|9     |FDCE      |   195|
+|10    |FDRE      |     2|
+|11    |IBUF      |    15|
+|12    |OBUF      |     1|
+|13    |OBUFT     |   128|
++------+----------+------+
+
+Report Instance Areas: 
++------+---------------------+-----------------+------+
+|      |Instance             |Module           |Cells |
++------+---------------------+-----------------+------+
+|1     |top                  |                 |   724|
+|2     |  Cache_map          |Cache            |   413|
+|3     |    CacheDP_map      |Cache_Datapath   |   413|
+|4     |      Dirty_port_map |Valid_Struc      |     3|
+|5     |      TagStruc_map   |Tag_struc        |   173|
+|6     |      Valid_port_map |Valid_Struc_0    |   237|
+|7     |  memoryController1  |memoryController |   166|
++------+---------------------+-----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1112.352 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1112.352 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1158.273 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+41 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1158.273 ; gain = 45.922
+INFO: [Common 17-1381] The checkpoint 'C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1/Mem_SubSys_ForTest.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Mem_SubSys_ForTest_utilization_synth.rpt -pb Mem_SubSys_ForTest_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 26 21:42:58 2020...

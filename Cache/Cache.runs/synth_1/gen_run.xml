@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1595634307">
-  <File Type="PA-TCL" Name="Valid_Struc.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Valid_Struc_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="Valid_Struc_reports.tcl"/>
-  <File Type="RDS-RDS" Name="Valid_Struc.vds"/>
-  <File Type="RDS-UTIL" Name="Valid_Struc_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="Valid_Struc_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="Valid_Struc.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Valid_Struc_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Valid_Struc_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1595799734">
+  <File Type="PA-TCL" Name="Mem_SubSys_ForTest.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Mem_SubSys_ForTest_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Mem_SubSys_ForTest_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Mem_SubSys_ForTest.vds"/>
+  <File Type="RDS-UTIL" Name="Mem_SubSys_ForTest_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Mem_SubSys_ForTest_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Mem_SubSys_ForTest.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Mem_SubSys_ForTest_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Mem_SubSys_ForTest_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/Cache.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/CacheController.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/cache_path_packages.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Cache_Datapath.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Data_struc.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Tag_struc.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/Valid_Struc.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -19,26 +55,29 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/arch_TestBench.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/mainMemory.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/testBench.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/memoryController.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Mem_SubSys_ForTest.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/testBench.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -52,37 +91,9 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/Tag_struc.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/Data_struc.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/Cache_Datapath.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/cache_path_packages.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="Valid_Struc"/>
+      <Option Name="TopModule" Val="Mem_SubSys_ForTest"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

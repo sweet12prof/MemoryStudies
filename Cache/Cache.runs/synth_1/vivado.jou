@@ -2,11 +2,11 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Fri Jul 24 23:45:10 2020
-# Process ID: 34464
+# Start of session at: Sun Jul 26 21:42:17 2020
+# Process ID: 61652
 # Current directory: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1
-# Command line: vivado.exe -log Valid_Struc.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Valid_Struc.tcl
-# Log file: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1/Valid_Struc.vds
+# Command line: vivado.exe -log Mem_SubSys_ForTest.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Mem_SubSys_ForTest.tcl
+# Log file: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1/Mem_SubSys_ForTest.vds
 # Journal file: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source Valid_Struc.tcl -notrace
+source Mem_SubSys_ForTest.tcl -notrace

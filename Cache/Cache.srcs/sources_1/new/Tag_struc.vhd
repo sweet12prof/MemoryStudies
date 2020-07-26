@@ -35,14 +35,14 @@ entity Tag_struc is
   Port ( 
             clk : in std_logic;
             WE  : in std_logic;
-            A   : in std_logic_vector(9 downto 0);
-            RD  : out std_logic_vector(17 downto 0);
-            WD  : in std_logic_vector(17 downto 0)
+            A   : in std_logic_vector(6 downto 0);
+            RD  : out std_logic_vector(3 downto 0);
+            WD  : in std_logic_vector(3 downto 0)
         );
 end Tag_struc;
    
 architecture Behavioral of Tag_struc is
-    type mem_array is array (0 to 1023) of std_logic_vector( 17 downto 0 );
+    type mem_array is array (0 to 127) of std_logic_vector( 3 downto 0 );
     signal MEM : mem_array;
 begin
     write_proc : process(clk)

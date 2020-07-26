@@ -38,7 +38,7 @@ entity Data_Struc is
             
             WriteBlock : in std_logic; 
             
-            A   : in std_logic_vector(10 downto 0);
+            A   : in std_logic_vector(8 downto 0);
             WD_WordData  : in std_logic_vector(31 downto 0 );
             
             WD_BlockData : in std_logic_vector(127 downto 0 );
@@ -48,10 +48,10 @@ entity Data_Struc is
 end Data_Struc;
 
 architecture Behavioral of Data_Struc is
-    type mem_array1 is array (0 to 256) of std_logic_vector(31 downto 0);
-    type mem_array2 is array (0 to 256) of std_logic_vector(31 downto 0);
-    type mem_array3 is array (0 to 256) of std_logic_vector(31 downto 0);
-    type mem_array4 is array (0 to 256) of std_logic_vector(31 downto 0);
+    type mem_array1 is array (0 to 127) of std_logic_vector(31 downto 0);
+    type mem_array2 is array (0 to 127) of std_logic_vector(31 downto 0);
+    type mem_array3 is array (0 to 127) of std_logic_vector(31 downto 0);
+    type mem_array4 is array (0 to 127) of std_logic_vector(31 downto 0);
     
     signal MEM1 : mem_array1;
     signal MEM2 : mem_array2;
@@ -77,28 +77,28 @@ begin
     read_proc1 : process(clk)
                     begin 
                        if(rising_edge(clk)) then 
-                           readData1 <= MEM1(TO_INTEGER(unsigned(A(10 downto 2))));
+                           readData1 <= MEM1(TO_INTEGER(unsigned(A(8 downto 2))));
                        end if; 
                     end process;
                     
      read_proc2 : process(clk)
                     begin 
                         if(rising_edge(clk)) then 
-                            readData2 <= MEM1(TO_INTEGER(unsigned(A(10 downto 2))));
+                            readData2 <= MEM1(TO_INTEGER(unsigned(A(8 downto 2))));
                         end if;
                     end process;
                     
      read_proc3 : process(clk)
                     begin
                         if(rising_edge(clk)) then 
-                            readData3 <= MEM1(TO_INTEGER(unsigned(A(10 downto 2))));
+                            readData3 <= MEM1(TO_INTEGER(unsigned(A(8 downto 2))));
                         end if;
                     end process;
                     
       read_proc : process(clk)
                     begin
                         if(rising_edge(clk)) then 
-                            readData4 <= MEM1(TO_INTEGER(unsigned(A(10 downto 2))));
+                            readData4 <= MEM1(TO_INTEGER(unsigned(A(8 downto 2))));
                         end if;
                     end process;
      
@@ -110,10 +110,10 @@ begin
       -----------------Writing Block Data -------------------------------------------------------------------------------------------------
       write_Block_Word1_proc : process(clk)
                             begin 
-                                if(rising_edge(clk)) then 
+                                if(falling_edge(clk)) then 
                                     if(WE = '1') then
                                         if( WriteBlock = '1') then  
-                                            MEM1(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_BlockData(127 downto 96);
+                                            MEM1(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_BlockData(127 downto 96);
                                         end if;
                                     end if;
                                 end if;
@@ -121,10 +121,10 @@ begin
                             
       write_Block_Word2_proc : process(clk)
                             begin 
-                                if(rising_edge(clk)) then 
+                                if(falling_edge(clk)) then 
                                     if(WE = '1') then
                                         if( WriteBlock = '1') then  
-                                            MEM2(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_BlockData(95 downto 64);
+                                            MEM2(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_BlockData(95 downto 64);
                                         end if;
                                     end if;
                                 end if;
@@ -133,10 +133,10 @@ begin
                                                       
       write_Block_Word3_proc : process(clk)
                             begin 
-                                if(rising_edge(clk)) then 
+                                if(falling_edge(clk)) then 
                                     if(WE = '1') then
                                         if( WriteBlock = '1') then  
-                                            MEM3(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_BlockData(63 downto 32);
+                                            MEM3(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_BlockData(63 downto 32);
                                         end if;
                                     end if;
                                 end if;
@@ -145,10 +145,10 @@ begin
                             
         write_Block_Word4_proc : process(clk)
                             begin 
-                                if(rising_edge(clk)) then 
+                                if(falling_edge(clk)) then 
                                     if(WE = '1') then
                                         if( WriteBlock = '1') then  
-                                            MEM4(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_BlockData(31 downto 0);
+                                            MEM4(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_BlockData(31 downto 0);
                                         end if;
                                     end if;
                                 end if;
@@ -159,52 +159,60 @@ begin
       
       
       -----------------------------------Writing Word Data Into Block -----------------------------------------------------------------------------
-      writeWord1_proc : process(clk)
-                        begin 
-                            if(WE = '1') then
-                                if(WriteBlock = '0') then 
-                                    if(MEM1_Wen = '1') then 
-                                        MEM1(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_WordData;
-                                    end if;
-                                end if;
-                            end if; 
-                        end process;  
+--      writeWord1_proc : process(clk)
+--                        begin 
+--                            if(falling_edge(clk)) then 
+--                                if(WE = '1') then
+--                                    if(WriteBlock = '0') then 
+--                                        if(MEM1_Wen = '1') then 
+--                                            MEM1(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_WordData;
+--                                        end if;
+--                                    end if;
+--                                end if; 
+--                             end if;
+--                        end process;  
                         
                         
-     writeWord2_proc : process(clk)
-                        begin 
-                            if(WE = '1') then
-                                if(WriteBlock = '0') then 
-                                    if(MEM2_Wen = '1') then 
-                                        MEM2(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_WordData;
-                                    end if;
-                                end if;
-                            end if; 
-                        end process;   
+--     writeWord2_proc : process(clk)
+--                        begin 
+--                            if(falling_edge(clk)) then 
+--                                if(WE = '1') then
+--                                    if(WriteBlock = '0') then 
+--                                        if(MEM2_Wen = '1') then 
+--                                            MEM2(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_WordData;
+--                                        end if;
+--                                    end if;
+--                                end if; 
+--                             end if;
+--                        end process;   
                         
                         
-     writeWord3_proc : process(clk)
-                        begin 
-                            if(WE = '1') then
-                                if(WriteBlock = '0') then 
-                                    if(MEM3_Wen = '1') then 
-                                        MEM3(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_WordData;
-                                    end if;
-                                end if;
-                            end if; 
-                        end process;       
+--     writeWord3_proc : process(clk)
+--                        begin 
+--                            if(falling_edge(clk)) then 
+--                                if(WE = '1') then
+--                                    if(WriteBlock = '0') then 
+--                                        if(MEM3_Wen = '1') then 
+--                                            MEM3(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_WordData;
+--                                        end if;
+--                                    end if;
+--                                end if; 
+--                            end if;
+--                        end process;       
                         
                         
-     writeWord4_proc : process(clk)
-                        begin 
-                            if(WE = '1') then
-                                if(WriteBlock = '0') then 
-                                    if(MEM4_Wen = '1') then 
-                                        MEM4(TO_INTEGER(unsigned(A(10 downto 2)))) <= WD_WordData;
-                                    end if;
-                                end if;
-                            end if; 
-                        end process;
+--     writeWord4_proc : process(clk)
+--                        begin 
+--                            if(falling_edge(clk)) then
+--                                if(WE = '1') then
+--                                    if(WriteBlock = '0') then 
+--                                        if(MEM4_Wen = '1') then 
+--                                            MEM4(TO_INTEGER(unsigned(A(8 downto 2)))) <= WD_WordData;
+--                                        end if;
+--                                    end if;
+--                                end if; 
+--                            end if;
+--                        end process;
  -------------------------------------------------------------------------------------------------------------------------------              
                         
       with A(1 downto 0) select MEM_Wen <= 

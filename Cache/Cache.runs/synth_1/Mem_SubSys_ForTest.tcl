@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1/Valid_Struc.tcl"
+  variable script "C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.runs/synth_1/Mem_SubSys_ForTest.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -79,12 +81,24 @@ set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.cache/wt} [current_project]
 set_property parent.project_path {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language Verilog [current_project]
+set_property target_language VHDL [current_project]
 set_property ip_output_repo {c:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib {{C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Valid_Struc.vhd}}
+read_vhdl -library xil_defaultlib {
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/CacheController.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/cache_path_packages.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Cache_Datapath.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Data_struc.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Tag_struc.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Valid_Struc.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/arch_TestBench.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/mainMemory.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/memoryController.vhd}
+  {C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cache/Cache.srcs/sources_1/new/Mem_SubSys_ForTest.vhd}
+}
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -98,17 +112,17 @@ set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top Valid_Struc -part xc7a100tcsg324-1
+synth_design -top Mem_SubSys_ForTest -part xc7a100tcsg324-1
 OPTRACE "synth_design" END { }
 
 
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef Valid_Struc.dcp
+write_checkpoint -force -noxdef Mem_SubSys_ForTest.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file Valid_Struc_utilization_synth.rpt -pb Valid_Struc_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file Mem_SubSys_ForTest_utilization_synth.rpt -pb Mem_SubSys_ForTest_utilization_synth.pb"
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

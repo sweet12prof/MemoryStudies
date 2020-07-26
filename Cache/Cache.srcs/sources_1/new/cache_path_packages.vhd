@@ -39,7 +39,7 @@ package cache_path_packages is
                 
                 WriteBlock : in std_logic; 
                 
-                A   : in std_logic_vector(10 downto 0);
+                A   : in std_logic_vector(8 downto 0);
                 WD_WordData  : in std_logic_vector(31 downto 0 );
                 
                 WD_BlockData : in std_logic_vector(127 downto 0 );
@@ -48,31 +48,24 @@ package cache_path_packages is
             );
     end component;
     
-    component Dirty_Struc is
-      Port ( 
-                clk   : std_logic; 
-                reset : std_logic;
-                D     : in std_logic_vector(1023 downto 0 );
-                Q     : out std_logic_vector(1023 downto 0)
-            );
-    end component;
     
     component Tag_struc is
       Port ( 
                 clk : in std_logic;
                 WE  : in std_logic;
-                A   : in std_logic_vector(9 downto 0);
-                RD  : out std_logic_vector(17 downto 0);
-                WD  : in std_logic_vector(17 downto 0)
+                A   : in std_logic_vector(6 downto 0);
+                RD  : out std_logic_vector(3 downto 0);
+                WD  : in std_logic_vector(3 downto 0)
             );
     end component;
     
    component Valid_Struc is
       Port ( 
                 clk   : std_logic; 
-                reset : std_logic;               
-                someNum : in std_logic_vector(10 downto 0);
-                Q     : out std_logic_vector(1023 downto 0)
+                reset : std_logic;
+                WE    : std_logic;           
+                someNum : in std_logic_vector(6 downto 0);
+                Q     : out std_logic
             );
     end component;
     

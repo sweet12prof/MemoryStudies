@@ -80,7 +80,7 @@ begin
    
    process
         begin 
-            for  i in 0 to 2048 loop
+            for  i in 0 to 2047 loop
                     Adr <= std_logic_vector(TO_UNSIGNED(i, Adr'length));
                     wait for 10 ns;
             end loop;

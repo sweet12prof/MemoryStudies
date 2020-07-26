@@ -35,16 +35,17 @@ entity Valid_Struc is
   Port ( 
             clk   : std_logic; 
             reset : std_logic;
-            --D     : in std_logic_vector(1023 downto 0 );
-            someNum : in std_logic_vector(10 downto 0);
-            Q     : out std_logic_vector(1023 downto 0)
+            WE    : std_logic;           
+            someNum : in std_logic_vector(6 downto 0);
+            Q     : out std_logic
         );
 end Valid_Struc;
 
 architecture Behavioral of Valid_Struc is
-    signal q_i : std_logic_vector(1023 downto 0);
+    signal q_i : std_logic_vector(127 downto 0);
+   
 begin
-    q <= q_i;
+    
     
     process(clk, reset)
         begin 
@@ -52,13 +53,18 @@ begin
                 Q_i <= (others => '0');
             elsif(rising_edge(clk)) then 
                 for i in 0 to 1023 loop
-                    if(i = to_integer(unsigned(someNum)) ) then 
-                        q_i(i) <= '1';
-                    else
-                        q_i(i) <= q_i(i);
+                    if( i = TO_INTEGER(unsigned(someNum))) then 
+                        if(WE = '1') then                            
+                            Q <= '1';
+                            q_i(i) <= '1';
+                        else                            
+                            Q <= q_i(i);                     
+                        end if;
                     end if;
-                        
                 end loop;
             end if;
         end process;
+        
+        
+      
 end Behavioral;

@@ -35,7 +35,7 @@ entity mainMemory is
   Port ( 
             clk                 : in std_logic;
             WE                  : in std_logic;
-            Adr                 : in std_logic_vector(10 downto 0);
+            Adr                 : in std_logic_vector(12 downto 0);
             RData               : out std_logic_vector(127 downto 0);
             RDataSingleElement  : out std_logic_vector(31 downto 0);
             WriteBlock          : in std_logic_vector(127 downto 0)          
@@ -138,28 +138,28 @@ architecture Behavioral of mainMemory is
         readProcess1 : process(clk)
                         begin 
                             if(rising_edge(clk)) then 
-                                readData1 <= MEM1(TO_INTEGER(unsigned(Adr(10 downto 2))));
+                                readData1 <= MEM1(TO_INTEGER(unsigned(Adr(12 downto 2))));
                             end if;
                         end process;
                         
         readProcess2 : process(clk)
                         begin 
                             if(rising_edge(clk)) then 
-                                readData2 <= MEM2(TO_INTEGER(unsigned(Adr(10 downto 2))));
+                                readData2 <= MEM2(TO_INTEGER(unsigned(Adr(12 downto 2))));
                             end if;
                         end process;
                         
         readProcess3 : process(clk)
                         begin 
                             if(rising_edge(clk)) then 
-                                readData3 <= MEM3(TO_INTEGER(unsigned(Adr(10 downto 2))));
+                                readData3 <= MEM3(TO_INTEGER(unsigned(Adr(12 downto 2))));
                             end if;
                         end process;
         
         readProcess4 : process(clk)
                         begin 
                             if(rising_edge(clk)) then 
-                                readData4 <= MEM4(TO_INTEGER(unsigned(Adr(10 downto 2))));
+                                readData4 <= MEM4(TO_INTEGER(unsigned(Adr(12 downto 2))));
                             end if;
                         end process;
                         
@@ -170,7 +170,7 @@ architecture Behavioral of mainMemory is
                        begin
                             if( rising_edge(clk)) then                              
                                     if( WE = '1') then                                      
-                                             MEM1(TO_INTEGER(unsigned(Adr(10 downto 2)))) <= WriteBlock(127 downto 96);                                      
+                                             MEM1(TO_INTEGER(unsigned(Adr(12 downto 2)))) <= WriteBlock(127 downto 96);                                      
                                     end if;
                                  end if;                        
                        end process; 
@@ -179,7 +179,7 @@ architecture Behavioral of mainMemory is
                        begin
                             if( rising_edge(clk)) then                               
                                         if( WE = '1') then                                            
-                                                 MEM2(TO_INTEGER(unsigned(Adr(10 downto 2)))) <= WriteBlock(95 downto 64);                                         
+                                                 MEM2(TO_INTEGER(unsigned(Adr(12 downto 2)))) <= WriteBlock(95 downto 64);                                         
                                         end if;                             
                             end if;
                        end process; 
@@ -188,7 +188,7 @@ architecture Behavioral of mainMemory is
                        begin
                             if( rising_edge(clk)) then                            
                                     if( WE = '1') then                                   
-                                             MEM3(TO_INTEGER(unsigned(Adr(10 downto 2)))) <= WriteBlock(63 downto 32);                                      
+                                             MEM3(TO_INTEGER(unsigned(Adr(12 downto 2)))) <= WriteBlock(63 downto 32);                                      
                                     end if;
                              end if;
                        end process; 
@@ -197,7 +197,7 @@ architecture Behavioral of mainMemory is
                        begin
                             if( rising_edge(clk)) then                           
                                     if( WE = '1') then                                     
-                                             MEM4(TO_INTEGER(unsigned(Adr(10 downto 2)))) <= WriteBlock(31 downto 0);                                       
+                                             MEM4(TO_INTEGER(unsigned(Adr(12 downto 2)))) <= WriteBlock(31 downto 0);                                       
                                     end if;
                              END IF;
                        end process; 
