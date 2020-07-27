@@ -61,7 +61,7 @@ entity memoryController is
 end memoryController;
 
 architecture Behavioral of memoryController is
-    type state_type is (Idle, Read, Write,  MEMReady);
+    type state_type is (Idle, Read, Write, MemReady);
     signal PS, NS : state_type;
     
     signal ReadCurrentCount : integer;
@@ -119,10 +119,10 @@ begin
                             when  idle =>
                                 ReadNextCount  <= 0;
                                 WriteNextCount <= 0;
-                                ready             <= '1';
+                                ready             <= '0';
                                 WE_MEM           <= '0';
                                 Adr_MEM          <= (OTHERS => '0');                                
-                               
+                                BlockData_Out    <= RData_MEM;
                                 
                                  if(Mem_Operation = '0') then 
                                     NS <= idle;
@@ -143,8 +143,8 @@ begin
                                      NS <= read;
                                 end if;
                                 
-                            when MEMReady => 
-                                ready <= '1';
+                            when MEMReady =>  
+                                ready <= '1';                              
                                 BlockData_Out <= RData_MEM;
                                 NS <= Idle;
                                 

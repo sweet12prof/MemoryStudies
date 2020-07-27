@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 package cache_path_packages is 
-    component Data_Struc 
+    component Struc 
       Port ( 
                 clk : in std_logic;
                 WE  : in std_logic;

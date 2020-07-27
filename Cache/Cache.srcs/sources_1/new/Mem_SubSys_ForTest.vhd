@@ -113,8 +113,8 @@ architecture Behavioral of Mem_SubSys_ForTest is
 begin
     memoryController1 : memoryController 
       generic map (
-            ReadCycles  => 4,
-            WriteCycles => 4 
+            ReadCycles  => 3,
+            WriteCycles => 3 
       )
       Port MAP( 
                 clk                 =>  clk,

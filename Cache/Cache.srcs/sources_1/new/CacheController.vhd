@@ -63,7 +63,7 @@ entity CacheController is
 end CacheController;
 
 architecture Behavioral of CacheController is
-    type state_type is (Idle, Compare, Read, Write, Allocate, WriteBack, Extra);
+    type state_type is (Idle, Compare, Read, Write, Allocate, WriteBack);
     signal PS, NS : state_type;
 begin
     sync_proc : process(clk, reset, NS)
@@ -119,40 +119,40 @@ begin
                                 end if;
                             
                             when Write => 
-                                DataStruc_WE         <= '1';
-                                DataStruc_WriteBlock    <= '0';
                                 DirtyStruc_WE           <= '1';
                                 ValidStruc_WE           <= '1';
                                 
                                 NS <= idle;
                             
-                            when Read =>
+                            when Read =>                               
                                 NS <= idle;
                                 
                             
                             when Allocate =>
                                 Mem_memOperation <= '1';
-                                Mem_WE_In    <= '0';
-                                DataStruc_WriteBlock <= '1';
-                                DataStruc_WE         <= '1';
-                                Tag_WE              <= '1';
-                                NS <= Extra;
+                                Mem_WE_In    <= '0';                     
                                 
-                            when EXTRA => 
-                                Mem_memOperation <= '1';
-                                Mem_WE_In    <= '0';
-                                DataStruc_WriteBlock <= '1';
-                                DataStruc_WE         <= '1';
+--                                NS <= read;
+                                
+--                            when EXTRA => 
+--                                Mem_memOperation <= '1';
+--                                Mem_WE_In    <= '0';
+--                                DataStruc_WriteBlock <= '1';
+--                                DataStruc_WE         <= '1';
                                
                                 
                                 if( Mem_ready = '1') then 
+                                    Tag_WE              <= '1';
+                                    ValidStruc_WE           <= '1';
+                                    DataStruc_WriteBlock <= '1';
+                                    DataStruc_WE         <= '1';
                                      if(DP_WE = '0') then 
                                         NS <= read;
                                      else 
                                         NS <= write;   
                                      end if;
                                 else 
-                                    NS <= Extra;
+                                    NS <= Allocate;
                             
                                 end if;
                                 

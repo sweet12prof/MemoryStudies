@@ -98,7 +98,7 @@ begin
             );
             
             
-    Data_Struc_map : Data_Struc Port map ( 
+    Data_Struc_map : Struc Port map ( 
             clk              => clk,
             WE               => DataStruc_WE,
             WriteBlock       => DataStruc_WriteBlock,
