@@ -120,8 +120,7 @@ begin
                             
                             when Write => 
                                 DirtyStruc_WE           <= '1';
-                                ValidStruc_WE           <= '1';
-                                
+                                ValidStruc_WE           <= '1';                   
                                 NS <= idle;
                             
                             when Read =>                               
@@ -130,17 +129,7 @@ begin
                             
                             when Allocate =>
                                 Mem_memOperation <= '1';
-                                Mem_WE_In    <= '0';                     
-                                
---                                NS <= read;
-                                
---                            when EXTRA => 
---                                Mem_memOperation <= '1';
---                                Mem_WE_In    <= '0';
---                                DataStruc_WriteBlock <= '1';
---                                DataStruc_WE         <= '1';
-                               
-                                
+                                Mem_WE_In    <= '0';                                                     
                                 if( Mem_ready = '1') then 
                                     Tag_WE              <= '1';
                                     ValidStruc_WE           <= '1';

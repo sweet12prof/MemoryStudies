@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Jul 28 02:46:45 2020
+# Process ID: 26628
+# Current directory: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cachev2/Cachev2.runs/synth_1
+# Command line: vivado.exe -log Cache.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Cache.tcl
+# Log file: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cachev2/Cachev2.runs/synth_1/Cache.vds
+# Journal file: C:/Users/TI Lab/Desktop/Project/MemoryStudies/Cachev2/Cachev2.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Cache.tcl -notrace

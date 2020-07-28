@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Cachev2.srcs/sources_1/new/mainMemPackages.vhd" \
+"../../../../Cachev2.srcs/sources_1/new/mainMemoryDatapath.vhd" \
+"../../../../Cachev2.srcs/sources_1/new/mainMemory_Controller.vhd" \
+"../../../../Cachev2.srcs/sources_1/new/mainMemory.vhd" \
+
+# Do not sort compile order
+nosort

@@ -32,23 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 package cache_path_packages is 
-    component Struc 
-      Port ( 
-                clk : in std_logic;
-                WE  : in std_logic;
-                
-                WriteBlock : in std_logic; 
-                
-                A   : in std_logic_vector(8 downto 0);
-                WD_WordData  : in std_logic_vector(31 downto 0 );
-                
-                WD_BlockData : in std_logic_vector(127 downto 0 );
-                RD  : OUT std_logic_vector(127 downto 0)
-      
-            );
-    end component;
-    
-    
+ 
     component Tag_struc is
       Port ( 
                 clk : in std_logic;

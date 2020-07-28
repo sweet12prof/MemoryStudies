@@ -62,6 +62,27 @@ end Cache_Datapath;
 
 architecture Behavioral of Cache_Datapath is
     use work.cache_path_packages.all;
+    
+    component Struc is
+      Port ( 
+                clk : in std_logic;
+                WE  : in std_logic;
+                
+                WriteBlock : in std_logic; 
+                
+                A   : in std_logic_vector(8 downto 0);
+                WD_WordData  : in std_logic_vector(31 downto 0 );
+                
+                WD_BlockData : in std_logic_vector(127 downto 0 );
+                RD  : OUT std_logic_vector(127 downto 0)
+      
+            );
+    end component;
+    
+    
+    
+    
+    
     signal TagData  : std_logic_vector(3 downto 0);
     signal TagComparator_Out  : std_logic;
     signal Valid_Sig                : std_logic;
@@ -98,7 +119,7 @@ begin
             );
             
             
-    Data_Struc_map : Struc Port map ( 
+    D_map : Struc Port map ( 
             clk              => clk,
             WE               => DataStruc_WE,
             WriteBlock       => DataStruc_WriteBlock,
